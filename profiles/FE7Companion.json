@@ -16,11 +16,11 @@
     },
     "movement": {
       "base": "0x0",
-      "pollRate": "low"
+      "pollRate": "medium"
     },
     "range": {
       "base": "0x0",
-      "pollRate": "low"
+      "pollRate": "medium"
     },
     "battle": {
       "base": "0x0203A3F0",
