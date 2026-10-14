@@ -7,7 +7,7 @@
   "meta": {
     "name": "FE7 Â· Tactical Companion",
     "author": "Local project",
-    "version": "0.5.57",
+    "version": "0.5.58",
     "description": "Battle dashboard pairs the FE7 minimap with selected-unit details, plus roster, items and support pages.",
     "minAppVersion": 1
   },
