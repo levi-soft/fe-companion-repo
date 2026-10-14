@@ -9,7 +9,7 @@
     "author": "Local project",
     "version": "0.5.65",
     "description": "Battle dashboard pairs the FE7 minimap with selected-unit details, plus roster, items and support pages.",
-    "minAppVersion": 1
+    "minAppVersion": 15
   },
   "settings": []
 }
