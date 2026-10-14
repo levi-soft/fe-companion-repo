@@ -1,0 +1,10 @@
+*.gba
+*.gbc
+*.ips
+*.ups
+*.bps
+*.sav
+*.srm
+*.state
+node_modules/
+package/

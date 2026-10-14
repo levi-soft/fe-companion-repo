@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "games": [
+    {
+      "profileId": "FE7Companion",
+      "name": "Fire Emblem 7 (USA) Companion",
+      "console": "GBA",
+      "themes": [
+        {
+          "id": "FE7Companion",
+          "type": "theme",
+          "name": "FE7 Â· Tactical Companion",
+          "author": "Local project",
+          "version": "0.5.57",
+          "description": "Battle dashboard pairs the FE7 minimap with selected-unit details, plus roster, items and support pages.",
+          "minAppVersion": 1
+        }
+      ]
+    }
+  ]
+}

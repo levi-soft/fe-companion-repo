@@ -1,0 +1,226 @@
+{
+  "id": "FE7Companion",
+  "name": "Fire Emblem 7 (USA) Companion",
+  "platform": "GBA",
+  "gameIds": [
+    "AE7E"
+  ],
+  "bundles": {
+    "terrain": {
+      "pointer": "0x0202E3E0",
+      "chain": [
+        "0x0",
+        "0x0"
+      ],
+      "pollRate": "low"
+    },
+    "battle": {
+      "base": "0x0203A3F0",
+      "pollRate": "high"
+    }
+  },
+  "credits": [
+    {
+      "name": "StanHash/fe7_us",
+      "url": "https://github.com/StanHash/fe7_us",
+      "reason": "Unit, map, support and minimap reference"
+    },
+    {
+      "name": "FEBuilderGBA",
+      "url": "https://github.com/FEBuilderGBA/FEBuilderGBA",
+      "reason": "FE7U unit-array and chapter addresses"
+    }
+  ],
+  "dataPoints": [
+    {
+      "id": "game_code",
+      "type": "bytes",
+      "size": 4,
+      "addresses": {
+        "AE7E": "0x080000AC"
+      },
+      "stable": true
+    },
+    {
+      "id": "chapter",
+      "type": "u8",
+      "size": 1,
+      "addresses": {
+        "AE7E": "0x0202BC06"
+      }
+    },
+    {
+      "id": "tactician_name",
+      "type": "bytes",
+      "size": 11,
+      "addresses": {
+        "AE7E": "0x0202BC18"
+      }
+    },
+    {
+      "id": "phase",
+      "type": "u8",
+      "size": 1,
+      "addresses": {
+        "AE7E": "0x0202BC07"
+      }
+    },
+    {
+      "id": "vision",
+      "type": "u8",
+      "size": 1,
+      "addresses": {
+        "AE7E": "0x0202BC05"
+      }
+    },
+    {
+      "id": "turn",
+      "type": "u16_le",
+      "size": 2,
+      "addresses": {
+        "AE7E": "0x0202BC08"
+      }
+    },
+    {
+      "id": "active_pointer",
+      "type": "u32_le",
+      "size": 4,
+      "addresses": {
+        "AE7E": "0x03004690"
+      }
+    },
+    {
+      "id": "battle_animation_active",
+      "type": "u32_le",
+      "size": 4,
+      "addresses": {
+        "AE7E": "0x0203E000"
+      }
+    },
+    {
+      "id": "dialogue_cursor",
+      "type": "u32_le",
+      "size": 4,
+      "addresses": {
+        "AE7E": "0x03000040"
+      }
+    },
+    {
+      "id": "dialogue_buffer",
+      "type": "bytes",
+      "size": 1024,
+      "addresses": {
+        "AE7E": "0x0202A5B4"
+      }
+    },
+    {
+      "id": "battle_actor",
+      "type": "bytes",
+      "size": 128,
+      "bundle": "battle",
+      "offset": "0x0"
+    },
+    {
+      "id": "battle_target",
+      "type": "bytes",
+      "size": 128,
+      "bundle": "battle",
+      "offset": "0x80"
+    },
+    {
+      "id": "map_cursor",
+      "type": "bytes",
+      "size": 4,
+      "addresses": {
+        "AE7E": "0x0202BBCC"
+      }
+    },
+    {
+      "id": "map_size",
+      "type": "bytes",
+      "size": 4,
+      "addresses": {
+        "AE7E": "0x0202E3D8"
+      }
+    },
+    {
+      "id": "map_camera",
+      "type": "bytes",
+      "size": 4,
+      "addresses": {
+        "AE7E": "0x0202BBC4"
+      }
+    },
+    {
+      "id": "map_cursor_previous",
+      "type": "bytes",
+      "size": 4,
+      "addresses": {
+        "AE7E": "0x0202BBD0"
+      }
+    },
+    {
+      "id": "play_cursor",
+      "type": "bytes",
+      "size": 2,
+      "addresses": {
+        "AE7E": "0x0202BC12"
+      }
+    },
+    {
+      "id": "terrain_map",
+      "type": "bytes",
+      "size": 2048,
+      "bundle": "terrain",
+      "offset": "0x0"
+    },
+    {
+      "id": "blue_0",
+      "type": "bytes",
+      "size": 1800,
+      "addresses": {
+        "AE7E": "0x0202BD50"
+      }
+    },
+    {
+      "id": "blue_25",
+      "type": "bytes",
+      "size": 1800,
+      "addresses": {
+        "AE7E": "0x0202C458"
+      }
+    },
+    {
+      "id": "blue_50",
+      "type": "bytes",
+      "size": 864,
+      "addresses": {
+        "AE7E": "0x0202CB60"
+      }
+    },
+    {
+      "id": "red_0",
+      "type": "bytes",
+      "size": 1800,
+      "addresses": {
+        "AE7E": "0x0202CEC0"
+      }
+    },
+    {
+      "id": "red_25",
+      "type": "bytes",
+      "size": 1800,
+      "addresses": {
+        "AE7E": "0x0202D5C8"
+      }
+    },
+    {
+      "id": "green_0",
+      "type": "bytes",
+      "size": 1440,
+      "addresses": {
+        "AE7E": "0x0202DCD0"
+      }
+    }
+  ]
+}
