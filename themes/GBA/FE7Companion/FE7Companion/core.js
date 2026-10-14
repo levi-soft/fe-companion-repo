@@ -15,7 +15,7 @@ function decodeDialogue(values){
   // FE7 keeps portraits alive across text IDs. Reuse the prior position slots
   // when a new buffer begins, then let Open* select the speaking face.
   for(let i=0;i<Math.min(offset,end);i++)if(raw[i]>=0x02&&raw[i]<=0x07)completeEnd=i;
-  if(completeEnd<0)return {active:true,text:'',speakerFaceId:faceId,pending:true,loading:!sameBuffer,segments:[]};
+  if(completeEnd<0)return {active:true,text:'',speakerFaceId:faceId,pending:true,loading:!sameBuffer,bufferKey,segments:[]};
   const finish=()=>{const value=text.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').replace(/\n{3,}/g,'\n\n').trim();if(value)segments.push({text:value,speakerFaceId:faceId});text='';};
   for(let i=0;i<=completeEnd;i++){
     const code=raw[i];
@@ -45,6 +45,6 @@ function decodeDialogue(values){
   if(currentText.length>12000)currentText=currentText.slice(-12000);
   const transcript=[history,currentText].filter(Boolean).join('\n');
   dialogueContext={...dialogueContext,gameCode:gameCode||dialogueContext.gameCode,bufferKey,initial:sameBuffer?dialogueContext.initial:seed,final,history,currentText,transcriptSpeaker:speakerFaceId,cursorKey,idle:0};
-  return {active:true,text:transcript,speakerFaceId,pending:false,segments:recent};
+  return {active:true,text:transcript,speakerFaceId,pending:false,bufferKey,segments:recent};
 }
 function decodeUnits(values){const units=[];for(const faction of factions)for(let start=0;start<faction.count;start+=25){const b=bytes(values[faction.key+'_'+start]);if(!b)continue;for(let i=0;i<Math.min(25,faction.count-start);i++){const u=parseUnit(b,i*72,faction.base+(start+i)*72,faction.key,start+i+1);if(u)units.push(u);}}return units;} function followedUnit(state,mode='cursor'){return mode==='active'?state.active:(state.hovered||state.active||null);} function canDropItem(unit,characterAttributes=0,classAttributes=0){return unit?.faction==='red'&&!!(((characterAttributes||0)|(classAttributes||0))&0x08000000);} function rank(v){return v>=251?'S':v>=181?'A':v>=121?'B':v>=71?'C':v>=31?'D':v>0?'E':'â€”';} function supportLevel(points){return points>240?3:points>160?2:points>80?1:0;} function supportProgress(points){const level=supportLevel(points),target=[80,160,240,null][level];return {level,rank:['â€”','C','B','A'][level],target,next:['C','B','A',null][level],remaining:target===null?0:Math.max(0,target-points)};} function snapshotCache(maxAge=Infinity,staleAfter=10000){ const entries=new Map(); return {clear(){entries.clear();},restore(values,now){for(const [key,value] of Object.entries(values||{}))entries.set(key,{value,time:now});},merge(values,now){ for(const [key,value] of Object.entries(values))entries.set(key,{value,time:now}); const merged={},missing=[],stale=[]; for(const [key,entry] of entries){if(now-entry.time>maxAge){entries.delete(key);continue;}merged[key]=entry.value;if(!(key in values)){missing.push(key);if(now-entry.time>staleAfter)stale.push(key);}} return {values:merged,missing,stale}; }}; } const api={factions,bytes,parseUnit,decode,decodeDialogue,decodeBattleUnit,decodeForecast,forecastStats,followedUnit,rank,canDropItem,supportLevel,supportProgress,snapshotCache}; global.FE7=api; if(typeof module!=='undefined')module.exports=api; })(typeof window==='undefined'?globalThis:window);
