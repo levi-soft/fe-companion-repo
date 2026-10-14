@@ -14,7 +14,11 @@ function decodeDialogue(values){
   const faceSlots=Object.assign(Object.create(null),seed.slots),activePosition=seed.position;let position=activePosition,faceId=seed.faceId,completeEnd=-1,text='',segments=[];
   // FE7 keeps portraits alive across text IDs. Reuse the prior position slots
   // when a new buffer begins, then let Open* select the speaking face.
+  // FE7 can leave the text pointer on the 0x03 wait marker while a completed
+  // line is waiting for input. Include that marker without consuming a partial
+  // next line if the pointer happens to be on another control byte.
   for(let i=0;i<Math.min(offset,end);i++)if(raw[i]>=0x02&&raw[i]<=0x07)completeEnd=i;
+  if(offset<end&&raw[offset]===0x03)completeEnd=offset;
   if(completeEnd<0)return {active:true,text:'',speakerFaceId:faceId,pending:true,loading:!sameBuffer,bufferKey,segments:[]};
   const finish=()=>{const value=text.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').replace(/\n{3,}/g,'\n\n').trim();if(value)segments.push({text:value,speakerFaceId:faceId});text='';};
   for(let i=0;i<=completeEnd;i++){
