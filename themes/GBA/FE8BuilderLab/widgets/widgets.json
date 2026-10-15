@@ -1,0 +1,50 @@
+[
+  {
+    "id": "fe8-banner",
+    "label": "FE8 Banner",
+    "src": "fe8-banner.html",
+    "defaultWidth": 250,
+    "defaultHeight": 82,
+    "defaultX": 16,
+    "defaultY": 16,
+    "resizable": true,
+    "transparent": true,
+    "minWidth": 120,
+    "minHeight": 56,
+    "screenTarget": "primary",
+    "description": "Static Sacred Stones banner for drag-and-drop practice.",
+    "tags": ["builder", "layout"]
+  },
+  {
+    "id": "chapter-turn",
+    "label": "Chapter / Turn",
+    "src": "chapter-turn.html",
+    "defaultWidth": 190,
+    "defaultHeight": 84,
+    "defaultX": 16,
+    "defaultY": 116,
+    "resizable": true,
+    "transparent": true,
+    "minWidth": 100,
+    "minHeight": 56,
+    "screenTarget": "primary",
+    "description": "Static chapter and turn card; pinch to resize.",
+    "tags": ["builder", "layout"]
+  },
+  {
+    "id": "resize-sample",
+    "label": "Resize Sample",
+    "src": "resize-sample.html",
+    "defaultWidth": 230,
+    "defaultHeight": 118,
+    "defaultX": 16,
+    "defaultY": 218,
+    "resizable": true,
+    "transparent": true,
+    "minWidth": 110,
+    "minHeight": 72,
+    "screenTarget": "primary",
+    "description": "Static test panel for moving, resizing, undo, and save.",
+    "tags": ["builder", "layout"]
+  }
+]

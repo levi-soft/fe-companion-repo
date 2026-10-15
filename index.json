@@ -2,6 +2,23 @@
   "version": "2.0",
   "games": [
     {
+      "profileId": "FE8BuilderLab",
+      "name": "Fire Emblem: The Sacred Stones (USA) — Builder Lab",
+      "console": "GBA",
+      "hasWidgets": true,
+      "themes": [
+        {
+          "id": "FE8BuilderDemo",
+          "type": "overlay",
+          "name": "FE8 Builder Demo",
+          "author": "FE Companion Lab",
+          "version": "0.1.0",
+          "description": "Static Fire Emblem widgets for testing the drag, resize, and save workflow in Overlay Builder.",
+          "minAppVersion": 15
+        }
+      ]
+    },
+    {
       "profileId": "FE7Companion",
       "name": "Fire Emblem 7 (USA) Companion",
       "console": "GBA",
